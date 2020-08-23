@@ -17,6 +17,7 @@ public class ChainAssembly implements IComponentPrice {
 
     @Override
     public Double getPrice(JSONObject componentArchitecture) {
+        fillDefaultCategory();
         return calculatePrice(componentArchitecture);
     }
 
@@ -27,7 +28,6 @@ public class ChainAssembly implements IComponentPrice {
         Set keySet = subComponentName.keySet();
         for(Object keyStr: keySet){
             Object keyValue = subComponentName.get(keyStr);
-            System.out.println("key: "+ keyStr + " value: " + keyValue);
             if(subComponentVsCategory.containsKey((String)keyValue)){
                 if(!subComponentVsCategory.get((String)keyValue).equals((String)keyStr)){
                     System.out.println("Invalid pair - key: " + (String)keyStr + " | value: " + (String)keyValue);
@@ -38,6 +38,9 @@ public class ChainAssembly implements IComponentPrice {
                     System.out.println("Invalid pair - key: " + (String)keyStr + " | value: " + (String)keyValue);
                     continue;
                 }
+            } else if(!subComponentVsCategory.containsKey((String)keyValue)){
+                System.out.println("Invalid pair - key: " + (String)keyStr + " | value: " + (String)keyValue);
+                continue;
             }
 
             calculatedPrice += priceCalculator.calculatePrice(keyStr, keyValue);

@@ -1,11 +1,9 @@
 package bicycle.components;
 
 import bicycle.pricing.PriceCalculator;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
