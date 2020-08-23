@@ -1,10 +1,9 @@
 package bicycle.components;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public interface IComponentPrice {
-    public Double getPrice(JSONObject componentArchitecture);
+import java.util.HashMap;
 
-    public Double calculatePrice(JSONObject subComponentName);
+public interface IComponentPrice {
+    Double calculatePrice(JSONObject subComponentName, HashMap subComponentVsCategory, Double fixedPrice);
 }

@@ -20,13 +20,13 @@ public class BicycleMain {
 
     public static void main(String[] args) throws IOException {
         JSONParser parser = new JSONParser();
-        Integer numQuarters = 0;
-        Double finalWheelPrice = 0d;
-        Double finalHandleAndBrakePrice = 0d;
-        Double finalFramePrice = 0d;
-        Double finalSeatPrice = 0d;
-        Double finalChainAssemblyPrice = 0d;
-        Double finalBicyclePrice = 0d;
+        Integer numQuarters;
+        Double finalWheelPrice;
+        Double finalHandleAndBrakePrice;
+        Double finalFramePrice;
+        Double finalSeatPrice;
+        Double finalChainAssemblyPrice;
+        Double finalBicyclePrice;
 
         Scanner scan = new Scanner(System.in);
         System.out.println("Provide File path: (-1 for exit)");
@@ -56,7 +56,7 @@ public class BicycleMain {
                             ComponentNameConstants.handleAndBrake.getValue(), numQuarters);
                     finalFramePrice = getDefaultFinalComponentPrice(ComponentNameConstants.frame.getValue(), numQuarters);
                     finalSeatPrice = getDefaultFinalComponentPrice(ComponentNameConstants.seat.getValue(), numQuarters);
-                    finalChainAssemblyPrice = getDefaultFinalComponentPrice(ComponentNameConstants.chainassembly.getValue(),
+                    finalChainAssemblyPrice = getDefaultFinalComponentPrice(ComponentNameConstants.chainAssembly.getValue(),
                             numQuarters);
                 } else {
                     JSONObject bicycleObject = (JSONObject) jsonObject.get(BICYCLE);
@@ -102,13 +102,13 @@ public class BicycleMain {
                             finalSeatPrice = getDefaultFinalComponentPrice(ComponentNameConstants.seat.getValue(), numQuarters);
                         }
 
-                        if (bicycleObject.get(ComponentNameConstants.chainassembly.getValue()) != null) {
+                        if (bicycleObject.get(ComponentNameConstants.chainAssembly.getValue()) != null) {
                             ChainAssembly chainAssemblyObject = new ChainAssembly();
                             finalChainAssemblyPrice = calculateCompoundInterest(
                                     chainAssemblyObject.getPrice((JSONObject) bicycleObject.get(
-                                            ComponentNameConstants.chainassembly.getValue())), numQuarters);
+                                            ComponentNameConstants.chainAssembly.getValue())), numQuarters);
                         } else {
-                            finalChainAssemblyPrice = getDefaultFinalComponentPrice(ComponentNameConstants.chainassembly.getValue(),
+                            finalChainAssemblyPrice = getDefaultFinalComponentPrice(ComponentNameConstants.chainAssembly.getValue(),
                                     numQuarters);
                         }
                     }
@@ -157,15 +157,12 @@ public class BicycleMain {
             System.exit(0);
         }
 
-        Integer numQuarters = (yearsDifference * 12 + (billDate.get(Calendar.MONTH)
+        return (yearsDifference * 12 + (billDate.get(Calendar.MONTH)
                 - defaultTime.get(Calendar.MONTH))) / 3;
-        return numQuarters;
-
     }
 
     private static Double calculateCompoundInterest(Double principle, Integer numQuarters) {
-        Double amount = principle * Math.pow(1 + INTEREST_RATE / 100, numQuarters);
-        return amount;
+        return principle * Math.pow(1 + INTEREST_RATE / 100, numQuarters);
     }
 
     private static Double getDefaultFinalComponentPrice(String compName, Integer numQuarters){
@@ -181,7 +178,7 @@ public class BicycleMain {
         } else if(ComponentNameConstants.seat.getValue().equals(compName)){
             Seat seatObject = new Seat();
             return calculateCompoundInterest(seatObject.getPrice(new JSONObject()), numQuarters);
-        } else if(ComponentNameConstants.chainassembly.getValue().equals(compName)){
+        } else if(ComponentNameConstants.chainAssembly.getValue().equals(compName)){
             ChainAssembly chainAssemblyObject = new ChainAssembly();
             return calculateCompoundInterest(chainAssemblyObject.getPrice(new JSONObject()), numQuarters);
         }

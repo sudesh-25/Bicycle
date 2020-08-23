@@ -1,7 +1,7 @@
 package bicycle.components;
 
 public enum ComponentNameConstants {
-    wheel("wheel"), chainassembly("chainassembly"), frame("frame"),
+    wheel("wheel"), chainAssembly("chainAssembly"), frame("frame"),
         handleAndBrake("handleAndBrake"), seat("seat");
 
     private String compName;
