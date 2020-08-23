@@ -17,8 +17,8 @@ public class Wheel implements IComponentPrice {
         subComponentVsCategory.put("wideTyre", "tyre");
         subComponentVsCategory.put("normalTyre", "tyre");
         subComponentVsCategory.put("Integer", "rim");
-        subComponentVsCategory.put("steelSpoke", "spokes");
-        subComponentVsCategory.put("aluminiumSpoke", "spokes");
+        subComponentVsCategory.put("steelSpoke", "spoke");
+        subComponentVsCategory.put("aluminiumSpoke", "spoke");
         subComponentVsCategory.put("tubeless", "tube");
         subComponentVsCategory.put("withTube", "tube");
     }

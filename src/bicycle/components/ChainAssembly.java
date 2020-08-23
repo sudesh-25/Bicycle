@@ -12,7 +12,7 @@ public class ChainAssembly implements IComponentPrice {
     private static Map<String, String> subComponentVsCategory = new HashMap<>();
 
     private void fillDefaultCategory(){
-        subComponentVsCategory.put("Integer", "gears");
+        subComponentVsCategory.put("Integer", "gear");
     }
 
     @Override

@@ -16,8 +16,8 @@ public class HandleAndBrake implements IComponentPrice {
         subComponentVsCategory.put("hardGrip", "grip");
         subComponentVsCategory.put("flatHandle", "handleBar");
         subComponentVsCategory.put("flatHandle", "handleBar");
-        subComponentVsCategory.put("normalBrake", "brakes");
-        subComponentVsCategory.put("discBrake", "brakes");
+        subComponentVsCategory.put("normalBrake", "brake");
+        subComponentVsCategory.put("discBrake", "brake");
         subComponentVsCategory.put("hydraulic", "brakeType");
         subComponentVsCategory.put("caliper", "brakeType");
     }
