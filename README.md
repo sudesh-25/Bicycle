@@ -12,6 +12,8 @@ pricing: this modules deals with calculation of pricing of different components.
 
 Component Structure provided in doc: https://docs.google.com/spreadsheets/d/1tP8UfTiRJJpVzzPlvKI1vQ07lfZCU9KM0yDA0DPuXUI/edit?usp=sharing
 
+Provide file path like: /Users/sudeshkumar/Downloads/test.txt
+
 Sample Json text:
 {
   "dateForPricing": "2021-02-01",
